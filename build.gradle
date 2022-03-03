@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+}
+
+group 'com.katelynslater'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+configurations.implementation.setCanBeResolved(true)
+
+task buildJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': '407ETR Example by Katelyn Slater',
+                'Implementation-Version': version,
+                'Main-Class': 'com.katelynslater.Main'
+    }
+    baseName = project.name + '-all'
+    from {
+        configurations.implementation.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
+}
+
+dependencies {
+    implementation 'org.json:json:20090211'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
