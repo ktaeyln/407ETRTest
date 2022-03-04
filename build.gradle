@@ -22,10 +22,10 @@ allprojects {
 task buildJar(type: Jar) {
     manifest {
         attributes 'Implementation-Title': '407ETR Example by Katelyn Slater',
-                'Implementation-Version': version,
+                'Implementation-Version': archiveVersion,
                 'Main-Class': 'com.katelynslater.CLI'
     }
-    baseName = project.name + '-all'
+    archiveBaseName = project.name + '-all'
     from {
         configurations.implementation.collect { it.isDirectory() ? it : zipTree(it) }
     }
