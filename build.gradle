@@ -11,11 +11,19 @@ repositories {
 
 configurations.implementation.setCanBeResolved(true)
 
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
+    }
+}
+
 task buildJar(type: Jar) {
     manifest {
         attributes 'Implementation-Title': '407ETR Example by Katelyn Slater',
                 'Implementation-Version': version,
-                'Main-Class': 'com.katelynslater.Main'
+                'Main-Class': 'com.katelynslater.CLI'
     }
     baseName = project.name + '-all'
     from {
