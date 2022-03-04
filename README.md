@@ -1,5 +1,6 @@
 # 407ETRTest
 
+## Use gradlew.bat on windows, instead of gradlew
 
 ### Building
 ```bash
