@@ -112,6 +112,7 @@ public class Interchanges {
         return locations.get(id);
     }
 
+    // Returns an Iterator for Locations
     public Iterator<Location> locationIterator() {
         return locations.iterator();
     }

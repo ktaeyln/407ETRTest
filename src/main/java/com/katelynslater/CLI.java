@@ -7,11 +7,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.*;
-
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
+
+import java.io.*;
 
 public class CLI {
     // CLI friendly exceptions, along with the exit status code to use
@@ -111,7 +110,7 @@ public class CLI {
         // Build the String, and create a JSONObject with it
         JSONObject interchangesJsonData = null;
         try {
-            log("Parsing interchanges.json");
+            log("Parsing interchanges data");
             interchangesJsonData = new JSONObject(interchangesJson.toString());
         } catch(JSONException jerr) {
             throw new CLIException("The interchanges data provided could not be parsed as JSON", ExitStatus.FailedToParseInterchanges, jerr);
